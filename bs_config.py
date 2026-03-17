@@ -13,6 +13,7 @@ ACCESS_KEY = os.getenv("BROWSERSTACK_ACCESS_KEY")
 def get_driver(cap):
 
     bstack_options = {
+    
         "userName": USERNAME,
         "accessKey": ACCESS_KEY,
         "sessionName": cap.get("name", "ElPais Test"),
@@ -20,9 +21,9 @@ def get_driver(cap):
         "source": "selenium-python",
         "debug": True,
         "networkLogs": True,
-        "consoleLogs": "info"
+        "consoleLogs": "info" 
     }
-
+    
     if "browserName" in cap:
         browser = cap["browserName"].lower()
         options = FirefoxOptions() if browser == "firefox" else Options()
